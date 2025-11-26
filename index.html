@@ -1,192 +1,112 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwiftPay Hub</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
+            font-family: "Poppins", sans-serif;
+            background: #f3f5ff;
+            color: #222;
         }
 
         header {
             background: #4b7bec;
-            padding: 18px;
-            text-align: center;
             color: white;
-            font-size: 22px;
-            font-weight: bold;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 600;
         }
 
         .container {
-            width: 92%;
-            margin: auto;
-            margin-top: 25px;
+            padding: 20px;
         }
 
         .card {
             background: white;
-            border-radius: 10px;
             padding: 20px;
-            margin-bottom: 18px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
         }
 
-        .card h2 {
-            margin: 0 0 15px 0;
-            font-size: 20px;
-            color: #333;
-        }
-
-        input, select, button {
+        .btn {
             width: 100%;
-            padding: 13px;
-            margin: 8px 0;
+            padding: 14px;
+            background: #3867d6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #274baf;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
             border-radius: 8px;
             border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        button {
-            background: #4b7bec;
-            color: white;
-            font-weight: bold;
-            border: none;
-        }
-
-        button:hover {
-            background: #3867d6;
-        }
-
-        .success {
-            padding: 12px;
-            background: #20bf6b;
-            color: white;
-            border-radius: 8px;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .error {
-            padding: 12px;
-            background: #eb3b5a;
-            color: white;
-            border-radius: 8px;
-            margin-top: 10px;
-            display: none;
+            margin-top: 8px;
         }
     </style>
 </head>
 <body>
 
-<header>SwiftPay Hub</header>
+<header>
+    SwiftPay Hub
+</header>
 
 <div class="container">
 
-    <!-- Airtime Purchase -->
     <div class="card">
-        <h2>Buy Airtime</h2>
-        <select id="network">
-            <option value="">Select Network</option>
-            <option value="mtn">MTN</option>
-            <option value="glo">GLO</option>
-            <option value="airtel">Airtel</option>
-            <option value="9mobile">9mobile</option>
-        </select>
-        <input type="number" id="amount" placeholder="Amount">
-        <input type="number" id="phone" placeholder="Phone Number">
-
-        <button onclick="buyAirtime()">Buy Now</button>
-
-        <div id="airtime-success" class="success">Airtime Purchase Successful!</div>
-        <div id="airtime-error" class="error">Error Processing Airtime</div>
+        <h2>💳 Send / Receive Payments</h2>
+        <input type="text" id="receiver" class="input-field" placeholder="Enter Receiver Address">
+        <input type="number" id="amount" class="input-field" placeholder="Amount">
+        <button class="btn" onclick="sendPayment()">Send Payment</button>
     </div>
 
-    <!-- Data Purchase -->
     <div class="card">
-        <h2>Buy Data</h2>
-        <select id="data-network">
+        <h2>📱 Buy Airtime / Data</h2>
+        <select id="network" class="input-field">
             <option value="">Select Network</option>
-            <option value="mtn">MTN</option>
-            <option value="glo">GLO</option>
-            <option value="airtel">Airtel</option>
-            <option value="9mobile">9mobile</option>
+            <option>MTN</option>
+            <option>Airtel</option>
+            <option>Glo</option>
+            <option>9Mobile</option>
         </select>
-        <select id="data-plan">
-            <option value="">Select Data Plan</option>
-            <option value="500">500MB</option>
-            <option value="1000">1GB</option>
-            <option value="2000">2GB</option>
-        </select>
-        <input type="number" id="data-phone" placeholder="Phone Number">
-
-        <button onclick="buyData()">Buy Data</button>
-
-        <div id="data-success" class="success">Data Purchase Successful!</div>
-        <div id="data-error" class="error">Error Processing Data</div>
+        <input type="number" id="phone" class="input-field" placeholder="Phone Number">
+        <input type="number" id="airtimeAmount" class="input-field" placeholder="Amount">
+        <button class="btn" onclick="buyAirtime()">Buy Airtime</button>
     </div>
 
-    <!-- Transfer / POS -->
     <div class="card">
-        <h2>Send Money</h2>
-        <input type="text" id="bank" placeholder="Bank Name">
-        <input type="number" id="account" placeholder="Account Number">
-        <input type="number" id="send-amount" placeholder="Amount">
-
-        <button onclick="sendMoney()">Send</button>
-
-        <div id="send-success" class="success">Transfer Successful!</div>
-        <div id="send-error" class="error">Transfer Failed!</div>
+        <h2>⚙️ Coming Soon</h2>
+        <p>POS Services, Bills Payment, Gift Cards, Betting Funding & more…</p>
     </div>
 
 </div>
 
 <script>
-    // ======== Airtime Purchase Function ========
+    function sendPayment() {
+        alert("Payment feature will be activated after Pi Open-Mainnet integration.");
+    }
+
     function buyAirtime() {
-        let network = document.getElementById("network").value;
-        let amount = document.getElementById("amount").value;
-        let phone = document.getElementById("phone").value;
-
-        if (!network || !amount || !phone) {
-            document.getElementById("airtime-error").style.display = "block";
-            return;
-        }
-
-        document.getElementById("airtime-success").style.display = "block";
-        document.getElementById("airtime-error").style.display = "none";
-    }
-
-    // ========= Data Purchase =========
-    function buyData() {
-        let network = document.getElementById("data-network").value;
-        let plan = document.getElementById("data-plan").value;
-        let phone = document.getElementById("data-phone").value;
-
-        if (!network || !plan || !phone) {
-            document.getElementById("data-error").style.display = "block";
-            return;
-        }
-
-        document.getElementById("data-success").style.display = "block";
-        document.getElementById("data-error").style.display = "none";
-    }
-
-    // ========= Money Transfer / POS =========
-    function sendMoney() {
-        let bank = document.getElementById("bank").value;
-        let account = document.getElementById("account").value;
-        let amount = document.getElementById("send-amount").value;
-
-        if (!bank || !account || !amount) {
-            document.getElementById("send-error").style.display = "block";
-            return;
-        }
-
-        document.getElementById("send-success").style.display = "block";
-        document.getElementById("send-error").style.display = "none";
+        alert("Airtime purchase service will go live soon.");
     }
 </script>
 
